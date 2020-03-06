@@ -551,6 +551,7 @@ instance.interceptors.request.use(function () {/*...*/});
 
 ## Handling Errors
 
+
 ```js
 axios.get('/user/12345')
   .catch(function (error) {
@@ -589,6 +590,15 @@ Using `toJSON` you get an object with more information about the HTTP error.
 axios.get('/user/12345')
   .catch(function (error) {
     console.log(error.toJSON());
+  });
+```
+
+Errors intentionally thrown by Axios will include an `isAxiosError` property set to `true`.
+
+```js
+axios.get('/user/12345')
+  .catch(function (error) {
+    console.log(error.isAxiosError);
   });
 ```
 
